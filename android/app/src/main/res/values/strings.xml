@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Python App</string>
+    <string name="title_activity_main">Python App</string>
+    <string name="package_name">com.vjcarlosedit.pythonapp</string>
+    <string name="custom_url_scheme">com.vjcarlosedit.pythonapp</string>
+</resources>
