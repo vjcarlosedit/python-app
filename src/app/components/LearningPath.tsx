@@ -1,6 +1,6 @@
 import { ModuleNode } from './ModuleNode';
 import { Play, Lock, Check, BookOpen, Code, Repeat, Database, Zap, AlertCircle, Boxes, Sparkles, TrendingUp } from 'lucide-react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { curriculum } from '../data/curriculum';
 
 interface LearningPathProps {

@@ -1,4 +1,5 @@
-import { createBrowserRouter } from "react-router";
+import { Capacitor } from "@capacitor/core";
+import { createBrowserRouter, createHashRouter } from "react-router-dom";
 import { RootLayout } from "./components/RootLayout";
 import { ModulesPage } from "./pages/ModulesPage";
 import { ProfilePage } from "./pages/ProfilePage";
@@ -8,11 +9,12 @@ import { HelpPage } from "./pages/HelpPage";
 import { SubModuleExercisePage } from "./pages/SubModuleExercisePage";
 import { DailyPracticePage } from "./pages/DailyPracticePage";
 import { EditProfilePage } from "./pages/EditProfilePage";
-import { AppearanceSettingsPage } from "./pages/settings/AppearanceSettingsPage";
-import { AccountSettingsPage } from "./pages/settings/AccountSettingsPage";
-import { NotificationsSettingsPage } from "./pages/settings/NotificationsSettingsPage";
 
-export const router = createBrowserRouter([
+const createAppRouter = Capacitor.isNativePlatform()
+  ? createHashRouter
+  : createBrowserRouter;
+
+export const router = createAppRouter([
   {
     element: <RootLayout />,
     children: [
@@ -39,20 +41,6 @@ export const router = createBrowserRouter([
       {
         path: "/settings",
         element: <SettingsPage />,
-        children: [
-          {
-            path: "appearance",
-            element: <AppearanceSettingsPage />,
-          },
-          {
-            path: "account",
-            element: <AccountSettingsPage />,
-          },
-          {
-            path: "notifications",
-            element: <NotificationsSettingsPage />,
-          },
-        ]
       },
       {
         path: "/notifications",

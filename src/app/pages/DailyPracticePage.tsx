@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { DuolingoExercise } from '../components/DuolingoExercise';
 import { LoadingScreen } from '../components/LoadingScreen';
 import { Sparkles, Zap, Brain, Target, Code } from 'lucide-react';

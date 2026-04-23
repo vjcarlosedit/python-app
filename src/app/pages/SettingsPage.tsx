@@ -1,8 +1,11 @@
-import { Outlet, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useApp } from '../contexts/AppContext';
 import { ChevronRight, LogOut, HelpCircle } from 'lucide-react';
 import { useState } from 'react';
 import { LogoutModal } from '../components/LogoutModal';
+import { AppearanceSettingsPage } from './settings/AppearanceSettingsPage';
+import { AccountSettingsPage } from './settings/AccountSettingsPage';
+import { NotificationsSettingsPage } from './settings/NotificationsSettingsPage';
 
 export function SettingsPage() {
   const { onLogout } = useApp();
@@ -13,10 +16,8 @@ export function SettingsPage() {
     onLogout();
   };
 
-  const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `w-full flex items-center justify-between px-4 py-4 transition-colors ${
-      isActive ? 'bg-gray-100 dark:bg-gray-700' : 'hover:bg-gray-50 dark:hover:bg-gray-700'
-    }`;
+  const navLinkClass =
+    'w-full flex items-center justify-between px-4 py-4 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700';
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-24 transition-colors">
@@ -26,29 +27,26 @@ export function SettingsPage() {
         </div>
       </div>
 
-      <div className="max-w-md mx-auto px-5 py-8 space-y-6 pt-16">
+      <div className="max-w-md mx-auto px-5 py-8 space-y-6 pt-20">
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
           <div className="px-4 py-3 bg-gray-50 dark:bg-gray-700 border-b border-gray-100 dark:border-gray-600">
-            <h3 className="text-gray-700 dark:text-gray-300 text-sm">Preferencias</h3>
+            <h3 className="text-gray-700 dark:text-gray-300 text-sm">Apariencia</h3>
           </div>
-          <div className="divide-y divide-gray-100 dark:divide-gray-700">
-            <NavLink to="appearance" className={navLinkClass}>
-              <span className="text-gray-800 dark:text-gray-200">Apariencia</span>
-              <ChevronRight className="w-5 h-5 text-gray-400 dark:text-gray-500" />
-            </NavLink>
-            <NavLink to="account" className={navLinkClass}>
-              <span className="text-gray-800 dark:text-gray-200">Cuenta</span>
-              <ChevronRight className="w-5 h-5 text-gray-400 dark:text-gray-500" />
-            </NavLink>
-            <NavLink to="notifications" className={navLinkClass}>
-              <span className="text-gray-800 dark:text-gray-200">Notificaciones</span>
-              <ChevronRight className="w-5 h-5 text-gray-400 dark:text-gray-500" />
-            </NavLink>
-          </div>
+          <AppearanceSettingsPage />
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
-          <Outlet />
+          <div className="px-4 py-3 bg-gray-50 dark:bg-gray-700 border-b border-gray-100 dark:border-gray-600">
+            <h3 className="text-gray-700 dark:text-gray-300 text-sm">Cuenta</h3>
+          </div>
+          <AccountSettingsPage />
+        </div>
+
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+          <div className="px-4 py-3 bg-gray-50 dark:bg-gray-700 border-b border-gray-100 dark:border-gray-600">
+            <h3 className="text-gray-700 dark:text-gray-300 text-sm">Notificaciones</h3>
+          </div>
+          <NotificationsSettingsPage />
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">

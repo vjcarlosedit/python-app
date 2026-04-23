@@ -1,5 +1,5 @@
 import { HelpCenterView } from '../components/HelpCenterView';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 export function HelpPage() {
   const navigate = useNavigate();

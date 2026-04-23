@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 import { DuolingoExercise } from '../components/DuolingoExercise';
 import { LoadingScreen } from '../components/LoadingScreen';
 import { useApp } from '../contexts/AppContext';
